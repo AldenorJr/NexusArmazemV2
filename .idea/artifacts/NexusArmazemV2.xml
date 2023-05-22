@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="NexusArmazemV2">
+    <output-path>$USER_HOME$/Desktop/servidor para videos/Servidores/Rankup/plugins</output-path>
+    <root id="archive" name="NexusArmazemV2.jar">
+      <element id="module-output" name="NexusArmazemV2" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

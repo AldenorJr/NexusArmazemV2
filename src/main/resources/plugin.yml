@@ -1,0 +1,7 @@
+name: NexusArmazemV2
+version: 1.0.0
+main: br.com.nexus.armazem.main.Main
+commands:
+  armazem:
+    aliases:
+      - automacao

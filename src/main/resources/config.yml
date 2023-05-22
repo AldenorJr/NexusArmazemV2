@@ -1,0 +1,86 @@
+MySQL:
+  user: root
+  host: 127.0.0.1:3306
+  database: test
+  password: ''
+Permission-armazem: 'NexusArmazem.use'
+Permission-armazem-admin: 'NexusArmazem.admin.use'
+Itens-armazem:
+  cactus:
+    name: '&6Cactos'
+    ID: 81
+    price: 15
+  melon:
+    name: '&aMelancia'
+    ID: 360
+    price: 10
+  fungo:
+    name: '&cFungo do Nether'
+    ID: 372
+    price: 32
+  limite:
+    name: '&6Limite armazém'
+    ID: 399
+    price: 0
+Limite-Configuration:
+  default:
+    name: 'Nível 0'
+    next: 'level-1'
+    limite: 560
+    price: 12500
+  level-1:
+    name: 'Nível 1'
+    next: 'level-2'
+    limite: 750
+    price: 25000
+  level-2:
+    name: 'Nível 2'
+    next: 'level-3'
+    limite: 1250
+    price: 50000
+  level-3:
+    name: 'Nível 3'
+    next: 'finish'
+    limite: 2500
+    price: 100000
+
+InventoryConfiguration:
+  # nome da key dos itens-armazem (que estão acima)
+  cactus:
+    lore:
+      - ''
+      - ' &fArmazém: &7@quantidade'
+      - ' &fVenda seus drops:&a $@money'
+      - ''
+      - '&eClique para vender.'
+    slot: 11
+  melon:
+    lore:
+      - ''
+      - ' &fArmazém: &7@quantidade'
+      - ' &fVenda seus drops:&a $@money'
+      - ''
+      - '&eClique para vender.'
+    slot: 13
+  fungo:
+    lore:
+      - ''
+      - ' &fArmazém: &7@quantidade'
+      - ' &fVenda seus drops:&a $@money'
+      - ''
+      - '&eClique para vender.'
+    slot: 15
+  limite:
+    lore-upgrade:
+      - '&6&lUP &7a capacidade do'
+      - '&7seu armazem.'
+      - ''
+      - ' &fCapacidade: &b@atual -> @futuro'
+      - ' &fCusto: §a$@dinheiro'
+      - ''
+      - '&eClique para upar!'
+    lore-finish:
+      - '&cVocê atingiu o limite máximo'
+      - ''
+      - '&fCapacidade atual: @atual'
+    slot: 31
