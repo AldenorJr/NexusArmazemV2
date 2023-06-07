@@ -28,6 +28,9 @@ public class SpawnItemListener implements Listener {
     public void toSpawnItem(ItemSpawnEvent e) {
         if(verifyIsPlot(e.getLocation())) return;
         Plot plot = new PlotAPI().getPlot(e.getLocation());
+        if(!databaseMethod.hasPlot(plot.getId().toString())) {
+            databaseMethod.setDefaultPlot(plot);
+        }
         PlotModel plotModel = databaseMethod.getPlotModelByID(plot.getId().toString());
         ItemStack itemStack = e.getEntity().getItemStack();
         if(plotModel.getArmazemModel().hasItem(itemStack.getTypeId()+"")) {

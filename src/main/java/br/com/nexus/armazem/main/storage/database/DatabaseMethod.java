@@ -112,6 +112,7 @@ public class DatabaseMethod {
     private ArmazemModel createArmazemDefault() {
         ArrayList<ItemArmazemModel> itensArmazem = new ArrayList<>();
         for(String key : main.getConfig().getConfigurationSection("Itens-armazem").getKeys(false)) {
+            if(key.equalsIgnoreCase("limite")) continue;
             String name = main.getConfig().getString("Itens-armazem."+key+".name");
             String ID = main.getConfig().getString("Itens-armazem."+key+".ID");
             int price = main.getConfig().getInt("Itens-armazem."+key+".price");
