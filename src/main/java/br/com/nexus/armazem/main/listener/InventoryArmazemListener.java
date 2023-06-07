@@ -80,7 +80,6 @@ public class InventoryArmazemListener implements Listener {
                 owner.sendMessage("");
                 owner.sendMessage("§6§l UPGRADE: §aSeu armazém tem um novo limite de: §a§l" + plotModel.getNextLimite() + " §aitens.");
                 owner.sendMessage("");
-                owner.playSound(owner.getLocation(), Sound.LEVEL_UP, 1f, 1f);
             }
             plotModel.setUpgradeLimite();
             databaseMethod.saveLimite(plotModel);
