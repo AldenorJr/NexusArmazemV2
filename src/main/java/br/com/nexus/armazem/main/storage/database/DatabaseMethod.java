@@ -25,7 +25,7 @@ public class DatabaseMethod {
     public void createTable() throws SQLException {
         try(Connection connection = hikariConnect.hikariDataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS " +
-                    "`NexusArmazem`(`Plot_ID` VARCHAR(24), `Armazem` LONGTEXT, `limite` LONGTEXT);")) {
+                    "`NexusArmazem`(`Plot_ID` TEXT, `Armazem` LONGTEXT, `limite` LONGTEXT);")) {
             preparedStatement.executeUpdate();
         }
     }

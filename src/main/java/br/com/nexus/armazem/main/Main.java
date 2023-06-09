@@ -13,6 +13,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+
 public class Main extends JavaPlugin {
 
     public String prefix = "§5[NexusArmazem] ";
@@ -26,8 +28,7 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
         Bukkit.getConsoleSender().sendMessage(prefix+ "§aConfiguração iniciado.");
-        hikariConnect.MySQLConnectLoad(getConfig().getString("MySQL.host"), getConfig().getString("MySQL.database"),
-                getConfig().getString("MySQL.user"), getConfig().getString("MySQL.password"));
+        onEnableBanco();
         Bukkit.getConsoleSender().sendMessage(prefix+ "§aBanco de dados iniciado.");
         databaseMethod.createTable();
         Bukkit.getConsoleSender().sendMessage(prefix+ "§aTabela do banco de dados carregado.");
@@ -36,6 +37,18 @@ public class Main extends JavaPlugin {
         registerCommand();
         setupEconomy();
         Bukkit.getConsoleSender().sendMessage(prefix+ "§aPlugin iniciado com sucesso.");
+    }
+
+    public void onEnableBanco() {
+        switch (getConfig().getString("Banco")) {
+            case "SQLite":
+                hikariConnect.SQLConnectLoad(new File(getDataFolder(), "database").toString());
+                break;
+            case "MySQL":
+                hikariConnect.MySQLConnectLoad(getConfig().getString("MySQL.host"), getConfig().getString("MySQL.database"),
+                        getConfig().getString("MySQL.user"), getConfig().getString("MySQL.password"));
+                break;
+        }
     }
 
     public void registerListener() {

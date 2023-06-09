@@ -1,3 +1,5 @@
+# SQLite ou MySQL
+Banco: SQLite
 MySQL:
   user: root
   host: 127.0.0.1:3306
