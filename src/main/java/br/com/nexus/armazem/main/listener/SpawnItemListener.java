@@ -44,8 +44,10 @@ public class SpawnItemListener implements Listener {
                 return;
             }
             for (UUID uuid : plot.getOwners()) {
-                Player player = Bukkit.getPlayer(uuid);
-                ActionBarAPI.send(player, "§cArmazém lotado!");
+                try {
+                    Player player = Bukkit.getPlayer(uuid);
+                    if(player.isOnline()) ActionBarAPI.send(player, "§cArmazém lotado!");
+                } catch (Exception ignored) {}
             }
         }
     }
