@@ -75,6 +75,17 @@ public class ArmazemModel {
         return 0;
     }
 
+    public ItemArmazemModel getItemArmazemModel(String id) {
+        if(itens != null) {
+            for (ItemArmazemModel itemArmazemModel : itens) {
+                if(itemArmazemModel.getID().equalsIgnoreCase(id)) {
+                    return itemArmazemModel;
+                }
+            }
+        }
+        return null;
+    }
+
     public ArrayList<ItemArmazemModel> getItens() {
         return itens;
     }

@@ -116,7 +116,8 @@ public class DatabaseMethod {
             String name = main.getConfig().getString("Itens-armazem."+key+".name");
             String ID = main.getConfig().getString("Itens-armazem."+key+".ID");
             int price = main.getConfig().getInt("Itens-armazem."+key+".price");
-            itensArmazem.add(new ItemArmazemModel(name, ID, 0, price));
+            boolean recall = main.getConfig().getBoolean("Itens-armazem."+key+".recolher");
+            itensArmazem.add(new ItemArmazemModel(name, ID, 0, price, recall));
         }
         return new ArmazemModel(itensArmazem);
     }

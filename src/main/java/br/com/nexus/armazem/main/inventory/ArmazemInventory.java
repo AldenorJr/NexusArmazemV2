@@ -22,11 +22,13 @@ public class ArmazemInventory {
     public void openInventory(Player player, PlotModel plotModel) {
         Inventory inventory = Bukkit.createInventory(null, 5*9, "§8Armazem");
         for(String k : main.getConfig().getConfigurationSection("InventoryConfiguration").getKeys(false)) {
+
             List<String> lore;
             if(k.equalsIgnoreCase("limite")) {
                 if(!plotModel.hasNextLimite()) lore = main.getConfig().getStringList("InventoryConfiguration."+k+".lore-finish");
                 else lore = main.getConfig().getStringList("InventoryConfiguration."+k+".lore-upgrade");
             } else lore = main.getConfig().getStringList("InventoryConfiguration."+k+".lore");
+
             String ID = main.getConfig().getString("Itens-armazem."+k+".ID");
             ItemStack itemStack = new ItemStack(Material.getMaterial(Integer.parseInt(ID)));
             ItemMeta itemMeta = itemStack.getItemMeta();
