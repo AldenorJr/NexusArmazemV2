@@ -1,8 +1,10 @@
 package br.com.nexus.armazem.main;
 
+import br.com.nexus.armazem.main.cache.BonusCache;
 import br.com.nexus.armazem.main.command.CommandArmazem;
 import br.com.nexus.armazem.main.inventory.ArmazemInventory;
 import br.com.nexus.armazem.main.listener.InventoryArmazemListener;
+import br.com.nexus.armazem.main.listener.PlayerChatEvent;
 import br.com.nexus.armazem.main.listener.PlotListener;
 import br.com.nexus.armazem.main.listener.SpawnItemListener;
 import br.com.nexus.armazem.main.storage.HikariConnect;
@@ -21,6 +23,8 @@ public class Main extends JavaPlugin {
     private HikariConnect hikariConnect = new HikariConnect();
     private DatabaseMethod databaseMethod = new DatabaseMethod(hikariConnect, this);
     private ArmazemInventory armazemInventory = new ArmazemInventory(this);
+    private BonusCache bonusCache = new BonusCache(this);
+    private PlayerChatEvent playerChatEvent = new PlayerChatEvent(databaseMethod);
 
     public static Economy economy = null;
 
@@ -33,6 +37,7 @@ public class Main extends JavaPlugin {
         databaseMethod.createTable();
         Bukkit.getConsoleSender().sendMessage(prefix+ "§aTabela do banco de dados carregado.");
         Bukkit.getConsoleSender().sendMessage(prefix+ "§aRegistrando os comandos e eventos.");
+        bonusCache.loadCacheBonus();
         registerListener();
         registerCommand();
         setupEconomy();
@@ -54,7 +59,8 @@ public class Main extends JavaPlugin {
     public void registerListener() {
         getServer().getPluginManager().registerEvents(new PlotListener(databaseMethod, this), this);
         getServer().getPluginManager().registerEvents(new SpawnItemListener(databaseMethod), this);
-        getServer().getPluginManager().registerEvents(new InventoryArmazemListener(databaseMethod), this);
+        getServer().getPluginManager().registerEvents(new InventoryArmazemListener(databaseMethod, this), this);
+        getServer().getPluginManager().registerEvents(playerChatEvent, this);
     }
 
     public void registerCommand() {

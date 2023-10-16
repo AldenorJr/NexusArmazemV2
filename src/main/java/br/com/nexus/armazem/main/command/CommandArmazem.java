@@ -39,6 +39,9 @@ public class CommandArmazem implements CommandExecutor {
                 return true;
             }
         }
+        if(!databaseMethod.hasPlot(plot.getId().toString())) {
+            databaseMethod.setDefaultPlot(plot);
+        }
         PlotModel plotModel = databaseMethod.getPlotModelByID(plot.getId().toString());
         armazemInventory.openInventory(player, plotModel);
 

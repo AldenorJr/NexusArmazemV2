@@ -7,23 +7,42 @@ MySQL:
   password: ''
 Permission-armazem: 'NexusArmazem.use'
 Permission-armazem-admin: 'NexusArmazem.admin.use'
+# coloque em ordem crescente (do maior bonus até o menor)
+BonusVIP:
+  MVPM:
+    # O bonus fica 75%
+    bonus: 1.75
+    permission: 'NexusArmazem.mvpm'
+  MVP:
+    # O bonus fica 50%
+    bonus: 1.50
+    permission: 'NexusArmazem.mvp'
+  VIP:
+    # O bonus fica 25%
+    bonus: 1.25
+    permission: 'NexusArmazem.vip'
 Itens-armazem:
   cactus:
     name: '&6Cactos'
     ID: 81
     price: 15
+    recolher: false
   melon:
     name: '&aMelancia'
     ID: 360
     price: 10
+    recolher: true
   fungo:
     name: '&cFungo do Nether'
     ID: 372
     price: 32
+    # pode recolher?
+    recolher: true
   limite:
     name: '&6Limite armazém'
     ID: 399
     price: 0
+    recolher: false
 Limite-Configuration:
   default:
     name: 'Nível 0'
@@ -62,7 +81,8 @@ InventoryConfiguration:
       - ' &fArmazém: &7@quantidade'
       - ' &fVenda seus drops:&a $@money'
       - ''
-      - '&eClique para vender.'
+      - '&eClique com &fesquerdo &epara vender.'
+      - '&eClique com &fdireito &epara recolher.'
     slot: 13
   fungo:
     lore:
@@ -70,7 +90,8 @@ InventoryConfiguration:
       - ' &fArmazém: &7@quantidade'
       - ' &fVenda seus drops:&a $@money'
       - ''
-      - '&eClique para vender.'
+      - '&eClique com &fesquerdo &epara vender.'
+      - '&eClique com &fdireito &epara recolher.'
     slot: 15
   limite:
     lore-upgrade:

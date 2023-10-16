@@ -1,11 +1,13 @@
 package br.com.nexus.armazem.main.cache;
 
+import br.com.nexus.armazem.main.model.ItemArmazemModel;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class PlayerCacheRemove {
+public class PlayerCacheRecall {
 
-    public static ArrayList<Player> playerArrayList = new ArrayList<>();
+    public static HashMap<Player, String> playerArrayList = new HashMap<>();
 
 }
